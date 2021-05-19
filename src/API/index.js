@@ -2,7 +2,7 @@ import axios from 'axios';
 import { BASE_URL, EndPoints } from './config';
 
 const getLoggedInUserToken = () => {
-    return typeof localStorage !== 'undefined' && localStorage.getItem('userDetail') && JSON.parse(localStorage.getItem('userDetail')).tokens.access.token;
+    return typeof localStorage !== 'undefined' && localStorage.getItem('userDetail') && JSON.parse(localStorage.getItem('userDetail')).tokens && JSON.parse(localStorage.getItem('userDetail')).tokens.access.token;
 }
 
 const SECONDS = 30;
@@ -21,7 +21,7 @@ const instance = axios.create({
 
 const API = {
     get: (key, params = {}, id , cb) => {
-        const url = EndPoints[key].url + (id ? `/${id}` : "");
+        const url = process.env.REACT_APP_SERVER_URL + EndPoints[key].url + (id ? `/${id}` : "");
         return instance.get(url, {
             params,
             headers: {
@@ -32,13 +32,11 @@ const API = {
             cb(res);
         }).catch(err => {
             cb(err.response);
-            console.log(err.response)
         });;
     },
 
     post: (key, data = {}, id = '' , cb) => {
-        const url = EndPoints[key].url + (id ? `/${id}` : "");
-        console.log('POST',url);
+        const url = process.env.REACT_APP_SERVER_URL + EndPoints[key].url + (id ? `/${id}` : "");
         
         return instance({
             'method': 'POST',
@@ -53,13 +51,11 @@ const API = {
         }).catch(err => {
             cb(err.response);
 
-            console.log(err.response)
         });
     },
 
     patch: (key, data = {}, id = '', cb) => {
-        const url = EndPoints[key].url + (id ? `/${id}` : "");
-        console.log('PATCH',url);
+        const url = process.env.REACT_APP_SERVER_URL + EndPoints[key].url + (id ? `/${id}` : "");
         return instance({
             'method': 'PATCH',
             'url': url,
@@ -73,13 +69,11 @@ const API = {
         }).catch(err => {
             cb(err.response);
 
-            console.log(err.response)
         });
     },
 
     delete: (key, data = {}, id = '' , cb) => {
-        const url = EndPoints[key].url + (id ? `/${id}` : "");
-        console.log('delete',url);
+        const url = process.env.REACT_APP_SERVER_URL + EndPoints[key].url + (id ? `/${id}` : "");
         return instance({
             'method': 'DELETE',
             'url': url,
@@ -93,7 +87,6 @@ const API = {
         }).catch(err => {
             cb(err.response);
 
-            console.log(err.response)
         });
     },
     // get : function (key, params = {}){
