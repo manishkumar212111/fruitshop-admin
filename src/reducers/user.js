@@ -18,6 +18,9 @@ const initialState = {
           return {...state, users :  data.results, totalPages : data.totalPages};
         case "PRODUCT_LIST":
           return {...state, productList :  data.results, totalPages : data.totalPages};
+        case 'SINGLE_PRODUCT_DETAIL' :
+          return {...state , productDetail : data , product_detail_loading : false};
+  
         case "PRODUCT_DETAIL_LOADING":
           return {...state, product_detail_loading : data};
         case "PAGE_LOADING":

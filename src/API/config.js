@@ -1,6 +1,6 @@
-import { API_BASE_URL } from "../config";
+import { REACT_APP_SERVER_URL } from "../configs";
 
-const BASE_URL = API_BASE_URL;
+const BASE_URL = REACT_APP_SERVER_URL;
 // const BASE_URL = 'https://obscure-harbor-22627.herokuapp.com/';
 const IMAGE_URL = "https://ik.imagekit.io/i2wp0fsg8dx/";
 
@@ -18,6 +18,9 @@ const EndPoints = {
     },
     productList : {
         url : "api/product"
+    },
+    productUpload : {
+        url : "api/product/product/csv/upload"
     }    
 };
 

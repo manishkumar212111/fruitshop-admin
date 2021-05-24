@@ -12,6 +12,16 @@ const _nav =  [
       text: 'NEW',
     }
   },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Products',
+    to: '/admin/products',
+    icon: <CIcon name="cil-speedometer" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'info',
+      text: 'NEW',
+    }
+  },
   // {
   //   _tag: 'CSidebarNavItem',
   //   name: 'Customers',
