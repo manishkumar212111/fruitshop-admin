@@ -40,7 +40,7 @@ const defaultProps = {
         productName: "",
         productDescription: '',
         productType: "men",
-        category: '',
+        category: 'beauty',
         imageType: "square",
         imgUrl: '',
         price : "",
@@ -78,7 +78,7 @@ const ProductForm = (props) => {
             productDescription: props.fieldObj.productDescription,
             productType: props.fieldObj.productType ? props.fieldObj.productType : "men", 
             category: props.fieldObj.category ? props.fieldObj.category : "beauty",
-            imageType: props.fieldObj.imageType,
+            imageType: props.fieldObj.imageType ? props.fieldObj.imageType : "square",
             imgUrl: props.fieldObj.imgUrl,
             price : props.fieldObj.price,
             user_type : "admin"
@@ -258,7 +258,7 @@ const ProductForm = (props) => {
               </CFormGroup>
               <CFormGroup>
                     <CLabel htmlFor="imageType">ImageType </CLabel>
-                    <CSelect name="imageType" id="imageType" value={fieldObj.category} onChange={(e) => handleChange(e , 'imageType')} >
+                    <CSelect name="imageType" id="imageType" value={fieldObj.imageType} onChange={(e) => handleChange(e , 'imageType')} >
                         <option value={"square"}>Square</option>
                         <option value={"vertical"}>Vertical</option>
                     </CSelect>
