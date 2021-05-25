@@ -26,6 +26,13 @@ import {
   CModalFooter
 } from '@coreui/react';
 
+const categories = [
+  {text : "Beauty" , id: "beauty" , status : false},
+  {text : "Food & Drink" , id: "food&drink"  , status : false},
+  {text : "Health & Wellness" , id: "health&wellness" , status : false},
+  {text : "Home & Living" , id: "home&living" , status : false},
+  {text : "Fashion" , id: "fashion" , status : false},
+]
 
 const defaultProps = {
     fieldObj : {
@@ -69,8 +76,8 @@ const ProductForm = (props) => {
             brandName: props.fieldObj.brandName,
             productName: props.fieldObj.productName,
             productDescription: props.fieldObj.productDescription,
-            productType: props.fieldObj.productType,
-            category: props.fieldObj.category,
+            productType: props.fieldObj.productType ? props.fieldObj.productType : "men", 
+            category: props.fieldObj.category ? props.fieldObj.category : "beauty",
             imageType: props.fieldObj.imageType,
             imgUrl: props.fieldObj.imgUrl,
             price : props.fieldObj.price,
@@ -236,10 +243,11 @@ const ProductForm = (props) => {
                 <CFormGroup>
                     <CLabel htmlFor="category">Category </CLabel>
                     <CSelect name="category" id="productType" value={fieldObj.category} onChange={(e) => handleChange(e , 'category')} >
-                        <option value={"beauty"}>beauty</option>
-                        <option value={"home"}>home</option>
-                        <option value={"living"}>living</option>
-                        <option value={"wellness"}>wellness</option>
+                        {
+                          categories.map(itm => (
+                            <option value={itm.id}>{itm.text}</option>
+                          ))
+                        }
                     </CSelect>
                 </CFormGroup>
 
