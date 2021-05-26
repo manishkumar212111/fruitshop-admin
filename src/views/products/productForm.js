@@ -39,7 +39,7 @@ const defaultProps = {
         brandName: '',
         productName: "",
         productDescription: '',
-        productType: "men",
+        productType: "",
         category: 'beauty',
         imageType: "square",
         imgUrl: '',
@@ -133,7 +133,13 @@ const ProductForm = (props) => {
         setErrorObj( errorOb => ( { ...errorOb , errOb}))
         if(!status)
             return;
-        
+
+        for(var i in fieldObj){
+          if(fieldObj[i] == ""){
+            delete fieldObj[i]
+          }
+        }
+
         if(isEdit){
             props.updateProductById(isEdit , fieldObj)
             return;
@@ -231,15 +237,18 @@ const ProductForm = (props) => {
               </CFormGroup> */}
               
               <CFormGroup>
-                    <CLabel htmlFor="productType">Product Type * </CLabel>
+                    <CLabel htmlFor="imgUrl">Product Type</CLabel>
+                    <CInput id="productType" name="productType" value={fieldObj.productType} onChange={(e) => handleChange(e , 'productType')} placeholder="Enter product type" />
+                    {!errorObj.productType.error && <CFormText className="help-block error">{errorObj.productType.msg}</CFormText>}
+              </CFormGroup>
+                    {/* <CLabel htmlFor="productType">Product Type * </CLabel>
                     <CSelect name="productType" id="productType" value={fieldObj.productType} onChange={(e) => handleChange(e , 'productType')} >
                         <option value={"men"}>men</option>
                         <option value={"women"}>women</option>
                         <option value={"kids"}>kids</option>
                         <option value={"all"}>all</option>
 
-                    </CSelect>
-                </CFormGroup>
+                    </CSelect> */}
                 <CFormGroup>
                     <CLabel htmlFor="category">Category </CLabel>
                     <CSelect name="category" id="productType" value={fieldObj.category} onChange={(e) => handleChange(e , 'category')} >
@@ -256,13 +265,13 @@ const ProductForm = (props) => {
                     <CInput id="imgUrl" name="imgUrl" value={fieldObj.imgUrl} onChange={(e) => handleChange(e , 'imgUrl')} placeholder="Enter imgUrl" />
                     {!errorObj.imgUrl.error && <CFormText className="help-block error">{errorObj.imgUrl.msg}</CFormText>}
               </CFormGroup>
-              <CFormGroup>
+              {/* <CFormGroup>
                     <CLabel htmlFor="imageType">ImageType </CLabel>
                     <CSelect name="imageType" id="imageType" value={fieldObj.imageType} onChange={(e) => handleChange(e , 'imageType')} >
                         <option value={"square"}>Square</option>
                         <option value={"vertical"}>Vertical</option>
                     </CSelect>
-                </CFormGroup>
+                </CFormGroup> */}
               <CFormGroup>
                     <CLabel htmlFor="price">Price * </CLabel>
                     <CInput type="number" id="price" name="price" value={fieldObj.price} onChange={(e) => handleChange(e , 'price')} placeholder="Enter price" />
