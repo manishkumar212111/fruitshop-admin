@@ -44,7 +44,9 @@ const defaultProps = {
         imageType: "square",
         imgUrl: '',
         price : "",
-        user_type : "admin"
+        user_type : "admin",
+        weight : 0,
+        sold_at : ""
     }
 }
 
@@ -60,7 +62,10 @@ const ProductForm = (props) => {
             productDescription : { error : true , msg : "It should be valid" },
             imageType : { error : true , msg : "It should be valid" },
             imgUrl : { error : true , msg : "It should be valid" },
-            price: { error : true , msg : "It should be valid" }
+            price: { error : true , msg : "It should be valid" },
+            weight: { error : true , msg : "It should be valid" },
+            sold_at: { error : true , msg : "It should be valid" },
+
         })
     
     
@@ -81,7 +86,9 @@ const ProductForm = (props) => {
             imageType: props.fieldObj.imageType ? props.fieldObj.imageType : "square",
             imgUrl: props.fieldObj.imgUrl,
             price : props.fieldObj.price,
-            user_type : "admin"
+            user_type : "admin",
+            weight : props.fieldObj.weight ? props.fieldObj.weight : 0,
+            sold_at : props.fieldObj.sold_at ? props.fieldObj.sold_at : ""
         })
     }, [props.fieldObj]);
     
@@ -113,6 +120,8 @@ const ProductForm = (props) => {
             case "product_type":
             case "category":
             case "price":
+            case "weight":
+            case "sold_at":
                 return  validateUtility.required(value)
             
             default :
@@ -278,6 +287,17 @@ const ProductForm = (props) => {
                     {!errorObj.price.error && <CFormText className="help-block error">{errorObj.price.msg}</CFormText>}
               </CFormGroup>
               
+              <CFormGroup>
+                    <CLabel htmlFor="weight">Weight  </CLabel>
+                    <CInput type="number" id="weight" name="weight" value={fieldObj.weight} onChange={(e) => handleChange(e , 'weight')} placeholder="Enter weight ( lbs) " />
+                    {!errorObj.weight.error && <CFormText className="help-block error">{errorObj.weight.msg}</CFormText>}
+              </CFormGroup>
+              
+              <CFormGroup>
+                    <CLabel htmlFor="sold_at">Sold At  </CLabel>
+                    <CInput type="sold_at" id="sold_at" name="sold_at" value={fieldObj.sold_at} onChange={(e) => handleChange(e , 'sold_at')} placeholder="Enter sold at" />
+                    {!errorObj.sold_at.error && <CFormText className="help-block error">{errorObj.sold_at.msg}</CFormText>}
+              </CFormGroup>
                 <CButton block color="primary" variant="outline"  onClick={handleClick} value="Submit">{isEdit ? "Update" : "Submit"}</CButton>
             </CCardBody>
           </CCard>

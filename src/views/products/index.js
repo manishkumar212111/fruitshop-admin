@@ -100,9 +100,11 @@ const ProductList = (props) => {
               { key: 'brandName',label:'Brand Name' },
               { key: 'productName',label:'Product Name' },
               { key: 'productDescription',label:'Product Description' },
-              { key: 'promoCode',label:'Promo Code' },
+              { key: 'sold_at',label:'Sold At' },
+              { key: 'weight',label:'Weight' },
+
               { key: 'imgUrl' , label: "Image"},
-              { key: 'url',label:'Product Link' },
+              // { key: 'url',label:'Product Link' },
               "Actions"
             //   { key: 'promoCode',label:'Promo Code', _classes: 'font-weight-bold' },
               

@@ -97,7 +97,7 @@ const Users = (props) => {
                 },
                 'Products':
                 (item) => {
-                  return(<td><CBadge><Link to={`/products/${item.id}`}>View All</Link></CBadge></td>)
+                  return(<td><CBadge><Link to={`products/${item.id}`}>View All</Link></CBadge></td>)
                 },
                 'logoUrl':
                 (item) => {

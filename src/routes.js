@@ -85,7 +85,7 @@ const routes = [
   // { path: '/notifications/modals', name: 'Modals', component: Modals },
   // { path: '/notifications/toaster', name: 'Toaster', component: Toaster },
   // { path: '/widgets', name: 'Widgets', component: Widgets },
-  { path: '/users', exact: true,  name: 'Users', component: Users },
+  // { path: '/users', exact: true,  name: 'Users', component: Users },
   // { path: '/plan', exact: true,  name: 'Plans', component: Plans },
   // { path: '/plan/add', exact: true,  name: 'Add Plans', component: PlanForm },
   // { path: '/plan/:id', exact: true, name: 'Plan Details', component: PlanForm },
