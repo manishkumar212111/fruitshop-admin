@@ -43,6 +43,8 @@ const ProductForm = React.lazy(() => import('./views/products/productForm'));
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Shops', component: Users },
+
+  { path: '/users', name: 'Shops', component: Users },
   { path: '/products/:id', name: 'Products', component: ProductList },
   { path: "/admin/products/create", name: 'Admin Products' , component: ProductForm},
   { path: "/admin/products/:id", name: 'Admin Products' , component: ProductForm},

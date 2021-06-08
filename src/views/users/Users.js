@@ -34,6 +34,7 @@ const Users = (props) => {
   const [users , setUser] = useState(props.users)
   
   const pageChange = newPage => {
+    console.log(newPage , currentPage)
     currentPage !== newPage && history.push(`/users?page=${newPage}`)
   }
 
@@ -70,7 +71,7 @@ const Users = (props) => {
             items={users}
             fields={[
               { key: 'userName',label:'User Name', _classes: 'font-weight-bold' },
-              'email','category',
+              'email','category',{ key: 'social_url',label:'Social Url'},
               {key:'logoUrl', lable : "Logo Url"},
                'createdAt', 'status', 'Products'
             ]}
@@ -102,6 +103,14 @@ const Users = (props) => {
                 'logoUrl':
                 (item) => {
                   return(<td><img width="50" height="50" src={item.style.logoUrl} /></td>)
+                },
+                'social_url':
+                (item) => {
+                  return(<td>
+                    {item.social_url.map(itm => (
+                      itm.url && <li><span>{itm.text}</span>: {itm.url}</li>
+                    ))}
+                  </td>)
                 }
             }}
           />
