@@ -32,6 +32,7 @@ const TheSidebar = () => {
           src={'avatars/logo1.png'}
           width="20"
           height="20"
+          style={{height: "71px"}}
           className="c-avatar-img"
           alt={"logo"}
         />
