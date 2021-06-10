@@ -40,7 +40,7 @@ const TheHeaderDropdown = (props) => {
         <div className="c-avatar">
           <strong>{user.first_name}</strong>
           <CImg
-            src={'avatars/6.jpg'}
+            src={'avatars/logo.png'}
             className="c-avatar-img"
             alt={user.email}
           />

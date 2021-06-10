@@ -20,8 +20,8 @@ import {
 import CIcon from '@coreui/icons-react'
 
 const Login = (props) => {
-  const [ email , setEmail ] = useState("manish@gmail.com");
-  const [ password , setPassword ] = useState("Password@123");
+  const [ email , setEmail ] = useState("");
+  const [ password , setPassword ] = useState("");
 
   useEffect(() => {
     if(props.userDetail && props.userDetail.user){
